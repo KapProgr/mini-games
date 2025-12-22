@@ -9,7 +9,7 @@
     "build": "cd client && npm install && npm run build",
     "start": "cd server && node src/server.js",
     "install:all": "npm install && cd client && npm install && cd ../server && npm install",
-    "render-build": "cd client && npm install && npm run build && cd ../server && npm install"
+    "render-build": "cd client && npm install --include=dev && npm run build && cd ../server && npm install"
   },
   "keywords": [
     "gaming",
