@@ -105,24 +105,12 @@ const Lobby = ({ user, onLogout }) => {
         navigate(`/game/${selectedGame.id}/${newRoomId}`);
     };
 
-    const handleJoinRoom = async () => {
+    const handleJoinRoom = () => {
         if (!roomId.trim()) return;
 
-        try {
-            // Fetch room info to get the game type
-            const apiUrl = import.meta.env.PROD ? '' : 'http://localhost:3001';
-            const response = await fetch(`${apiUrl}/api/room/${roomId.trim().toUpperCase()}`);
-            const roomInfo = await response.json();
-
-            if (roomInfo.exists) {
-                navigate(`/game/${roomInfo.gameType}/${roomId.trim().toUpperCase()}`);
-            } else {
-                alert('Room not found! Please check the room code.');
-            }
-        } catch (error) {
-            console.error('Error fetching room info:', error);
-            alert('Error joining room. Please try again.');
-        }
+        // Navigate directly - the GameRoom component will handle if room doesn't exist
+        // We'll default to tictactoe, but the actual game type will be set when joining
+        navigate(`/game/tictactoe/${roomId.trim().toUpperCase()}`);
     };
 
     return (
@@ -271,4 +259,3 @@ const Lobby = ({ user, onLogout }) => {
 };
 
 export default Lobby;
-
