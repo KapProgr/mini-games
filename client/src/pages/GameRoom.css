@@ -1,0 +1,209 @@
+.game-room {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.game-room-header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.room-info h2 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.5rem;
+}
+
+.players-info {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.player-badge {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.room-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.game-room-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 0;
+    overflow: hidden;
+}
+
+.game-area {
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    overflow: auto;
+}
+
+.chat-area {
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.waiting-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.waiting-content {
+    text-align: center;
+    max-width: 500px;
+    padding: var(--spacing-2xl);
+}
+
+.waiting-icon {
+    font-size: 5rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.waiting-content h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.waiting-content p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.room-code-display {
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.room-code-display:hover {
+    border-color: var(--primary);
+    background: var(--bg-card-hover);
+    transform: scale(1.02);
+}
+
+.room-code {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    letter-spacing: 0.5rem;
+    color: var(--primary-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.copy-hint {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.room-code-modal {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 2px dashed var(--glass-border);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.room-code-modal:hover {
+    border-color: var(--primary);
+}
+
+.room-code-large {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    letter-spacing: 0.5rem;
+    color: var(--primary-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.game-room-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: var(--spacing-xl);
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .game-room-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 300px;
+    }
+
+    .chat-area {
+        border-left: none;
+        border-top: 1px solid var(--glass-border);
+    }
+}
+
+@media (max-width: 768px) {
+    .game-room-header {
+        padding: var(--spacing-md);
+    }
+
+    .room-info h2 {
+        font-size: 1.25rem;
+    }
+
+    .room-actions {
+        width: 100%;
+    }
+
+    .room-actions button {
+        flex: 1;
+    }
+
+    .game-area {
+        padding: var(--spacing-md);
+    }
+
+    .room-code {
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+    }
+
+    .room-code-large {
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+    }
+
+    .game-room-content {
+        grid-template-rows: 1fr 250px;
+    }
+}
