@@ -33,6 +33,25 @@ const battleshipGrids = new Map(); // Store player ship positions
 const pictionaryGames = new Map(); // Pictionary game state
 const palermoGames = new Map(); // Palermo game state
 
+// API endpoint to check if room exists
+app.get('/api/room/:roomId', (req, res) => {
+    const { roomId } = req.params;
+    const room = rooms.get(roomId);
+
+    if (room) {
+        res.json({
+            exists: true,
+            gameType: room.gameType,
+            playerCount: room.players.length
+        });
+    } else {
+        res.json({
+            exists: false
+        });
+    }
+});
+
+
 io.on('connection', (socket) => {
     console.log(`✅ User connected: ${socket.id}`);
 
