@@ -110,7 +110,8 @@ const Lobby = ({ user, onLogout }) => {
 
         try {
             // Fetch room info to get the game type
-            const response = await fetch(`http://localhost:3001/api/room/${roomId.trim().toUpperCase()}`);
+            const apiUrl = import.meta.env.PROD ? '' : 'http://localhost:3001';
+            const response = await fetch(`${apiUrl}/api/room/${roomId.trim().toUpperCase()}`);
             const roomInfo = await response.json();
 
             if (roomInfo.exists) {
@@ -270,3 +271,4 @@ const Lobby = ({ user, onLogout }) => {
 };
 
 export default Lobby;
+
