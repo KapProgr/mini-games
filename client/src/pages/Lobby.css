@@ -149,12 +149,21 @@
 
 @media (max-width: 768px) {
     .lobby-header {
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-sm) 0;
+    }
+
+    .lobby-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .lobby-content {
+        padding: var(--spacing-lg) var(--spacing-md);
     }
 
     .lobby-header .flex {
         flex-direction: column;
-        gap: var(--spacing-md);
+        gap: var(--spacing-sm);
         align-items: flex-start !important;
     }
 
@@ -165,15 +174,31 @@
     .lobby-header .flex>div:last-child .flex {
         flex-direction: row;
         width: 100%;
+        gap: var(--spacing-xs);
     }
 
     .lobby-header .flex>div:last-child .btn {
         flex: 1;
+        padding: var(--spacing-sm);
+        font-size: 0.875rem;
     }
 
     .lobby-main {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
+    }
+
+    .lobby-intro {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .lobby-intro h2 {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .lobby-intro p {
+        font-size: 0.875rem;
     }
 
     .lobby-chat-section {
