@@ -187,6 +187,32 @@
         gap: var(--spacing-md);
     }
 
+    .game-card {
+        padding: var(--spacing-md);
+    }
+
+    .game-icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .game-card h3 {
+        font-size: 1rem;
+    }
+
+    .game-card p {
+        font-size: 0.75rem;
+    }
+
+    .game-meta {
+        gap: var(--spacing-xs);
+    }
+
+    .badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+
     .modal-content .flex {
         flex-direction: column;
     }
