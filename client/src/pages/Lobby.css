@@ -149,22 +149,32 @@
 
 @media (max-width: 768px) {
     .lobby-header {
-        padding: var(--spacing-sm) 0;
+        padding: var(--spacing-xs) 0;
     }
 
     .lobby-header h1 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+
+    .lobby-header p {
+        font-size: 0.75rem;
         margin-bottom: var(--spacing-xs);
     }
 
     .lobby-content {
-        padding: var(--spacing-lg) var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-md);
     }
 
     .lobby-header .flex {
         flex-direction: column;
-        gap: var(--spacing-sm);
+        gap: var(--spacing-xs);
         align-items: flex-start !important;
+    }
+
+    /* Hide icon buttons on mobile */
+    .lobby-header .flex>div:last-child>div:first-child {
+        display: none !important;
     }
 
     .lobby-header .flex>div:last-child {
@@ -179,8 +189,8 @@
 
     .lobby-header .flex>div:last-child .btn {
         flex: 1;
-        padding: var(--spacing-sm);
-        font-size: 0.875rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
     }
 
     .lobby-main {
