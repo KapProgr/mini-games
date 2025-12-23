@@ -1,0 +1,45 @@
+.online-players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.no-players {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.player-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.player-item:hover {
+    background: var(--bg-hover);
+    transform: translateX(4px);
+}
+
+.player-avatar {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.player-name {
+    flex: 1;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.player-status {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}

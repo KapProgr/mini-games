@@ -1,0 +1,116 @@
+/* Theme CSS Variables */
+:root {
+    /* Light Theme (Default) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-card: #ffffff;
+    --bg-hover: rgba(0, 0, 0, 0.05);
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+
+    --border-color: #e0e0e0;
+    --glass-border: rgba(255, 255, 255, 0.2);
+
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #e0e7ff;
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-lg: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-card: #252525;
+    --bg-hover: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+
+    --border-color: #404040;
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --primary: #818cf8;
+    --primary-dark: #6366f1;
+    --primary-light: #312e81;
+
+    --success: #34d399;
+    --warning: #fbbf24;
+    --danger: #f87171;
+
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-lg: rgba(0, 0, 0, 0.5);
+}
+
+/* Apply theme colors to body */
+body {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Update existing components to use variables */
+.card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+/* Modal dark mode */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .modal-overlay {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* Input dark mode */
+input,
+textarea,
+select {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary);
+}
+
+.chat-message {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+.chat-input {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}

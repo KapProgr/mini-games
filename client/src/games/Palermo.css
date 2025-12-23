@@ -1,0 +1,213 @@
+.palermo-game {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.phase-indicator {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+}
+
+.role-card {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.role-card.show {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+}
+
+.role-emoji {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.role-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-light);
+}
+
+.role-team {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+.dead-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-radius: var(--radius-lg);
+}
+
+.lobby-section,
+.night-section,
+.day-section,
+.game-over-section {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+}
+
+.players-list,
+.target-list,
+.players-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin: var(--spacing-lg) 0;
+}
+
+.player-chip {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+}
+
+.target-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 2px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-size: 1rem;
+}
+
+.target-btn:hover:not(:disabled) {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.target-btn.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.target-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-section p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+}
+
+.selected-text {
+    margin-top: var(--spacing-md);
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.message-display {
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+.alive-players h3 {
+    margin-bottom: var(--spacing-md);
+}
+
+.player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    min-width: 100px;
+}
+
+.vote-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.vote-btn.voted {
+    background: var(--primary);
+}
+
+.vote-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.vote-status {
+    margin-top: var(--spacing-md);
+    color: var(--primary-light);
+}
+
+.spectator-mode {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: var(--radius-md);
+}
+
+.game-log {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.game-log h4 {
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: var(--spacing-sm);
+}
+
+.log-entries {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.log-entry {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: var(--spacing-xs) 0;
+}
+
+.info-text {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+}
