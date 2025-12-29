@@ -123,4 +123,4 @@ MIT
 
 ## Author
 
-Created with ❤️ for gaming enthusiasts
+Created for gaming enthusiasts
