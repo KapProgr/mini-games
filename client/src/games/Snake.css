@@ -7,6 +7,8 @@
 
 .snake-board {
     position: relative;
+    width: 400px;
+    height: 400px;
     background: var(--bg-secondary);
     border: 3px solid var(--glass-border);
     border-radius: var(--radius-lg);
@@ -121,18 +123,35 @@
 }
 
 @media (max-width: 768px) {
+    .snake-game {
+        width: 100%;
+        max-width: 100vw;
+        padding: 0;
+        gap: var(--spacing-sm);
+    }
+
     .snake-board {
-        transform: scale(0.85);
-        transform-origin: center;
+        width: min(90vw, 400px) !important;
+        height: min(90vw, 400px) !important;
+        transform: none;
+    }
+
+    .direction-controls {
+        margin-top: var(--spacing-sm);
+        gap: 4px;
     }
 
     .dir-btn {
-        width: 70px;
-        height: 70px;
-        font-size: 32px;
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
     }
 
     .dir-row {
-        gap: 80px;
+        gap: 40px;
+    }
+
+    .food {
+        font-size: 14px;
     }
 }

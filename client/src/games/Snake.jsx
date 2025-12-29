@@ -124,10 +124,6 @@ const Snake = ({ socket, roomId, user, players }) => {
             <div
                 ref={boardRef}
                 className="snake-board"
-                style={{
-                    width: GRID_SIZE * CELL_SIZE,
-                    height: GRID_SIZE * CELL_SIZE
-                }}
             >
                 <div
                     className="food"

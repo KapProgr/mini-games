@@ -58,8 +58,24 @@
 }
 
 @media (max-width: 768px) {
-    .airhockey-canvas {
+    .airhockey-game {
         width: 100%;
-        height: auto;
+        max-width: 100vw;
+        padding: 0;
+    }
+
+    .airhockey-game canvas {
+        max-width: 95vw !important;
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    .scores {
+        gap: var(--spacing-md);
+        font-size: 0.875rem;
+    }
+
+    .player-score strong {
+        font-size: 1.5rem;
     }
 }

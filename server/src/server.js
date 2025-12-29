@@ -104,6 +104,16 @@ io.on('connection', (socket) => {
 
         const room = rooms.get(roomId);
 
+        // Validate gameType matches
+        if (room.gameType !== gameType) {
+            console.log(`⚠️ GameType mismatch for room ${roomId}: expected ${room.gameType}, got ${gameType}`);
+            socket.emit('game-type-mismatch', {
+                expectedGameType: room.gameType,
+                roomId
+            });
+            return;
+        }
+
         if (!room.players.find(p => p.socketId === socket.id)) {
             room.players.push({
                 socketId: socket.id,
@@ -117,7 +127,7 @@ io.on('connection', (socket) => {
 
         io.to(roomId).emit('player-joined', { username });
 
-        console.log(`👤 ${username} joined room ${roomId}`);
+        console.log(`👤 ${username} joined room ${roomId} (${room.gameType})`);
     });
 
     // Global chat - works from anywhere

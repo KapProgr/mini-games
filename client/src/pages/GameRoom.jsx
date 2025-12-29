@@ -48,35 +48,47 @@ const GameRoom = ({ user, onLogout }) => {
         if (!socket || !connected) return;
 
         // Join the room
-        socket.emit('join-room', { roomId, username: user.username, gameType });
+        socket.emit('join-room', { roomId, username: user.username, gameType, avatar: user.avatar });
+
+        // Handle game type mismatch
+        const handleGameTypeMismatch = ({ expectedGameType, roomId: mismatchRoomId }) => {
+            console.log(`Redirecting to correct game: ${expectedGameType}`);
+            navigate(`/game/${expectedGameType}/${mismatchRoomId}`);
+        };
 
         // Listen for room updates
-        socket.on('room-update', ({ players: updatedPlayers }) => {
+        const handleRoomUpdate = ({ players: updatedPlayers }) => {
             setPlayers(updatedPlayers);
-        });
+        };
 
-        socket.on('player-joined', ({ username }) => {
+        const handlePlayerJoined = ({ username }) => {
             console.log(`${username} joined the room`);
             if (username !== user.username) {
                 addToast(`${username} joined!`, 'info');
                 soundManager.playNotification();
             }
-        });
+        };
 
-        socket.on('player-left', ({ username }) => {
+        const handlePlayerLeft = ({ username }) => {
             console.log(`${username} left the room`);
             if (username !== user.username) {
                 addToast(`${username} left`, 'warning');
             }
-        });
+        };
+
+        socket.on('game-type-mismatch', handleGameTypeMismatch);
+        socket.on('room-update', handleRoomUpdate);
+        socket.on('player-joined', handlePlayerJoined);
+        socket.on('player-left', handlePlayerLeft);
 
         return () => {
             socket.emit('leave-room', { roomId });
-            socket.off('room-update');
-            socket.off('player-joined');
-            socket.off('player-left');
+            socket.off('game-type-mismatch', handleGameTypeMismatch);
+            socket.off('room-update', handleRoomUpdate);
+            socket.off('player-joined', handlePlayerJoined);
+            socket.off('player-left', handlePlayerLeft);
         };
-    }, [socket, connected, roomId, user.username, gameType]);
+    }, [socket, connected, roomId, user.username, user.avatar, gameType]);
 
     const handleCopyRoomCode = () => {
         navigator.clipboard.writeText(roomId);

@@ -173,12 +173,19 @@
 }
 
 @media (max-width: 768px) {
+    .game-room {
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .game-room-header {
-        padding: var(--spacing-md);
+        padding: var(--spacing-sm);
+        flex-shrink: 0;
     }
 
     .room-info h2 {
-        font-size: 1.25rem;
+        font-size: 1rem;
+        margin-bottom: var(--spacing-xs);
     }
 
     .room-actions {
@@ -187,23 +194,46 @@
 
     .room-actions button {
         flex: 1;
-    }
-
-    .game-area {
-        padding: var(--spacing-md);
-    }
-
-    .room-code {
-        font-size: 2rem;
-        letter-spacing: 0.3rem;
-    }
-
-    .room-code-large {
-        font-size: 2rem;
-        letter-spacing: 0.3rem;
+        padding: var(--spacing-xs);
+        font-size: 0.875rem;
     }
 
     .game-room-content {
-        grid-template-rows: 1fr 250px;
+        grid-template-rows: 1fr;
+        overflow: hidden;
+    }
+
+    .game-area {
+        padding: var(--spacing-sm);
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .game-area>* {
+        max-width: 100%;
+        flex-shrink: 0;
+    }
+
+    .chat-area {
+        display: none;
+    }
+
+    .room-code {
+        font-size: 1.5rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .room-code-large {
+        font-size: 1.5rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .player-badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
     }
 }
